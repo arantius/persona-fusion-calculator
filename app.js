@@ -81,6 +81,10 @@ function CalcCtrl(persona_name) {
 }
 CalcCtrl.$inject = [];
 
+CalcCtrl.prototype.getRank = function(persona) {
+    return arcanaRank[persona.arcana];
+}
+
 CalcCtrl.prototype.addRecipe = function(recipe) {
   recipe.cost = 0;
   for (var i = 0, source = null; source = recipe.sources[i]; i++) {
@@ -88,7 +92,11 @@ CalcCtrl.prototype.addRecipe = function(recipe) {
     recipe.cost += (27 * level * level) + (126 * level) + 2147;
   }
 
-  recipe.sources = angular.Array.orderBy(recipe.sources, '-level');
+  // Sort so that the "3rd persona" in triangle fusion (the one that needs
+  // to have the highest current level) is always listed first.  In case
+  // of a tie in level, the persona with the lowest arcana rank is used.
+  recipe.sources = angular.Array.orderBy(recipe.sources,
+					 [ '-level', this.getRank ]);
   this.allRecipes.push(recipe);
 };
 
@@ -128,21 +136,17 @@ CalcCtrl.prototype.fuse3 = function(arcana, persona1, persona2, persona3) {
   }
   if (!found) return null;
 
-  /*
-  // This was described in FAQs but does not seem to be accurate.
+  // In same arcana fusion, skip over the ingredients.
   if (persona1.arcana == arcana
       && persona2.arcana == arcana
       && persona3.arcana == arcana) {
-    if (personae[i + 1]) {
+    while (persona1.name == personae[i].name
+           || persona2.name == personae[i].name
+           || persona3.name == personae[i].name) {
       i++;
-      if (persona1.name == personae[i].name
-          || persona2.name == personae[i].name
-          || persona3.name == personae[i].name) {
-        if (personae[i + 1]) i++;
-      }
+      if (!personae[i]) return null;
     }
   }
-  */
 
   return personae[i];
 }
@@ -165,8 +169,7 @@ CalcCtrl.prototype.getRecipes = function(personaName) {
   }
 
   // Consider straight fusion.
-  function filter2Way(persona1, persona2, pastHalf, result) {
-    if (persona1.arcana == persona2.arcana && pastHalf) return true;
+  function filter2Way(persona1, persona2, result) {
     if (persona1.name == this.persona.name) return true;
     if (persona2.name == this.persona.name) return true;
     if (result.name == this.persona.name) return false;
@@ -220,7 +223,9 @@ CalcCtrl.prototype.getRecipes = function(personaName) {
       }
     }
     find3WayRecipes.call(this, combo.source[0], combo.source[1]);
-    find3WayRecipes.call(this, combo.source[1], combo.source[0]);
+    if (combo.source[1] != combo.source[0]) {
+      find3WayRecipes.call(this, combo.source[1], combo.source[0]);
+    }
   }
 };
 
@@ -233,11 +238,11 @@ CalcCtrl.prototype.getArcanaRecipes = function(arcanaName, filterCallback) {
     var personae2 = personaeByArcana[combo.source[1]];
     for (var j = 0, persona1 = null; persona1 = personae1[j]; j++) {
       for (var k = 0, persona2 = null; persona2 = personae2[k]; k++) {
-        if (persona1 == persona2) continue;
+        if (persona1.arcana == persona2.arcana && k <= j) continue;
         var result = this.fuse2(combo.result, persona1, persona2);
         if (!result) continue;
         if (filterCallback
-            && filterCallback.call(this, persona1, persona2, k <= j, result)) {
+            && filterCallback.call(this, persona1, persona2, result)) {
           continue;
         }
 
