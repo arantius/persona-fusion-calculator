@@ -68,7 +68,7 @@ const personae = [
     {'arcana': 'Fool',        'level': 67, 'name': 'Black Frost',       'special': true, },
     {'arcana': 'Fool',        'level': 83, 'name': 'Vishnu',            'max': true, },
     {'arcana': 'Fool',        'level': 95, 'name': 'Satanael',          'special': true, },
-    {'arcana': 'Fortune',     'level': 20, 'name': 'Stone of Scone',    },
+    {'arcana': 'Fortune',     'level': 20, 'name': 'Stone of Scone',    'special': true, },
     {'arcana': 'Fortune',     'level': 26, 'name': 'Clotho',            },
     {'arcana': 'Fortune',     'level': 30, 'name': 'Ariadne',           },
     {'arcana': 'Fortune',     'level': 34, 'name': 'Lachesis',          },
