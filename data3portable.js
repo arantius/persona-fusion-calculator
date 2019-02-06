@@ -144,7 +144,7 @@ const personae = [
     {'name': 'Shiva',           'level': 82, 'arcana': 'Tower', 'special': true},
     {'name': 'Chi You',         'level': 86, 'arcana': 'Tower', 'max': true},
     {'name': 'Neko Shogun',     'level': 19, 'arcana': 'Star'},
-    {'name': 'Stanta',          'level': 28, 'arcana': 'Star'},
+    {'name': 'Setanta',         'level': 28, 'arcana': 'Star'},
     {'name': 'Nandi',           'level': 39, 'arcana': 'Star'},
     {'name': 'Kaiwan',          'level': 49, 'arcana': 'Star'},
     {'name': 'Ganesha',         'level': 58, 'arcana': 'Star'},
