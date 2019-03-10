@@ -176,7 +176,7 @@ const personae = [
     {'arcana': 'Star',        'level': 80, 'name': 'Sraosha',           'special': true, },
     {'arcana': 'Star',        'level': 93, 'name': 'Lucifer',           'max': true, 'special': true, },
     {'arcana': 'Strength',    'level':  6, 'name': 'Kelpie',            },
-    {'arcana': 'Strength',    'level': 14, 'name': 'Kusgi Mitama',      },
+    {'arcana': 'Strength',    'level': 14, 'name': 'Kusi Mitama',       },
     {'arcana': 'Strength',    'level': 19, 'name': 'Oni',               },
     {'arcana': 'Strength',    'level': 24, 'name': 'Rakshasa',          },
     {'arcana': 'Strength',    'level': 30, 'name': 'Orlov',             },
