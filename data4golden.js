@@ -1,7 +1,5 @@
 // Derived from:
-//   http://www.gamefaqs.com/ps2/945498-shin-megami-tensei-persona-4/faqs/54981
-//   http://www.gamefaqs.com/ps2/945498-shin-megami-tensei-persona-4/faqs/54981
-//   http://db.gamefaqs.com//portable/vita//file/persona_4_golden_fusion.png
+//   https://aqiu384.github.io/megaten-fusion-tool/p4g/chart
 
 const personae = [
     {'arcana': 'Fool',        'level':  1, 'name': 'Izanagi',           },
@@ -280,7 +278,7 @@ const arcana2Combos = [
     {'source': ['Empress',     'Empress',     ], 'result': 'Empress'     },
     {'source': ['Empress',     'Emperor',     ], 'result': 'Moon'        },
     {'source': ['Empress',     'Heirophant',  ], 'result': 'Death'       },
-    {'source': ['Empress',     'Lovers',      ], 'result': 'Justice'     },
+    {'source': ['Empress',     'Lovers',      ], 'result': 'Hanged Man'  },
     {'source': ['Empress',     'Chariot',     ], 'result': 'Justice'     },
     {'source': ['Empress',     'Justice',     ], 'result': 'Magician'    },
     {'source': ['Empress',     'Hermit',      ], 'result': 'Magician'    },
