@@ -280,7 +280,7 @@ const arcana2Combos = [
     {'source': ['Empress',     'Empress',     ], 'result': 'Empress'     },
     {'source': ['Empress',     'Emperor',     ], 'result': 'Moon'        },
     {'source': ['Empress',     'Heirophant',  ], 'result': 'Death'       },
-    {'source': ['Empress',     'Lovers',      ], 'result': 'Justice'     },
+    {'source': ['Empress',     'Lovers',      ], 'result': 'Hanged Man'  },
     {'source': ['Empress',     'Chariot',     ], 'result': 'Justice'     },
     {'source': ['Empress',     'Justice',     ], 'result': 'Magician'    },
     {'source': ['Empress',     'Hermit',      ], 'result': 'Magician'    },
